@@ -40,6 +40,10 @@
                 <br />
                 <input type="range" min="0" max="5" name="Priority" value="@Model.Priority" />
             </td>
+            <td>
+                Загрузить новый файл<br />
+                <input type="file" name="File" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -48,8 +52,16 @@
                 @Html.EditorFor(m => m.Status)
             </td>
             <td>
-                Загрузить новый файл<br />
-                <input type="file" name="File" />
+                @Html.LabelFor(m => m.Email, "Email")
+                <br />
+                @Html.EditorFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Deadline, "Deadline")
+                <br />
+                @Html.EditorFor(m => m.Deadline)
             </td>
         </tr>
         <tr>

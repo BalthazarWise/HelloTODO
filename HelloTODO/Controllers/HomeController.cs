@@ -20,12 +20,12 @@ namespace HelloTODO.Controllers
             return View(tasks);
         }
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult Add([Bind(Include = "Id,Name,Email,Deadline")] Task add)
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Add(Task add, HttpPostedFileBase File)
+        public ActionResult Add([Bind(Include = "Id,Name,Email,Deadline")] Task add, HttpPostedFileBase File)
         {
             // получаем имя файла
             string fileName = Path.GetFileName(File.FileName);

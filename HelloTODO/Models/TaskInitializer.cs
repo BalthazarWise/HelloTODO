@@ -10,18 +10,42 @@ namespace HelloTODO.Models
     {
         protected override void Seed(TaskContext db)
         {
-            var t1 = new Task { Id = 1, Name = "Сходить в магазин",
+            var t1 = new Task
+            {
+                Id = 1,
+                Name = "Сходить в магазин",
                 Description = "Задача - купить еды на ужин, бюджет - 30грн.",
-                Status = true,  Priority = 3, Image = "Homer.png" };
-            var t2 = new Task { Id = 2, Name = "Чекнуть 2ч",
+                Email = "hochukushat@barabaka.gov",
+                Deadline = DateTime.Now.AddDays(2),
+                Status = true,  Priority = 3, Image = "Homer.png"
+            };
+            var t2 = new Task
+            {
+                Id = 2,
+                Name = "Чекнуть 2ч",
                 Description = "Проверить борды, вдруг там новый цуинь тред",
-                Status = false, Priority = 2, Image = "Mammoth.png" };
-            var t3 = new Task { Id = 3, Name = "Приготовить еду",
+                Email = "anonis@2ch.hk",
+                Deadline = DateTime.Now.AddDays(3),
+                Status = false, Priority = 2, Image = "Mammoth.png"
+            };
+            var t3 = new Task
+            {
+                Id = 3,
+                Name = "Приготовить еду",
                 Description = "Надо бы еды приготовить, а то одними бутербродами питаюсь",
-                Status = true,  Priority = 3, Image = "Pepe.png" };
-            var t4 = new Task { Id = 4, Name = "Погладить кота",
+                Email = "coock@salo.org",
+                Deadline = DateTime.Now.AddDays(1),
+                Status = true,  Priority = 3, Image = "Pepe.png"
+            };
+            var t4 = new Task
+            {
+                Id = 4,
+                Name = "Погладить кота",
                 Description = "Кот грустит. Погладь его.",
-                Status = false, Priority = 1, Image = "Salo.png" };
+                Email = "kisa@gmail.com",
+                Deadline = DateTime.Now.AddDays(3),
+                Status = false, Priority = 1, Image = "Salo.png"
+            };
 
             db.Tasks.Add(t1);
             db.Tasks.Add(t2);
