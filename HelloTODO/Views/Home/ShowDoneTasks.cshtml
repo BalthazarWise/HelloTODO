@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowDoneTasks</title>
+</head>
+<body>
+    <div>
+        <h3>Список заданий</h3>
+        <p><a href="/Home/add/">Добавить таск</a></p>
+        <p><a href="/Home/Index/">Вернуться на главную</a></p>
+        <table>
+            <tr>
+                <td><p>ID</p></td>
+                <td><p>Задание</p></td>
+                <td><p>Статус</p></td>
+                <td><p>Приоритет</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Tasks)
+            {
+                //if (@b.Status == true)
+                //{
+                    <tr>
+                        <td><p>@b.Id</p></td>
+                        <td><p>@b.Name</p></td>
+                        <td><p>@b.Status</p></td>
+                        <td><p>@b.Priority</p></td>
+                        <td><p><a href="/Home/edit/@b.Id">Редактировать таск</a></p></td>
+                    </tr>
+                //}
+            }
+        </table>
+    </div>
+</body>
+</html>

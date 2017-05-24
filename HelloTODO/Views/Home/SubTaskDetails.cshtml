@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Task " + @Model.Name;
+}
+@model HelloTODO.Models.Task
+
+<div>
+    <h4>SubTask @Model.Name</h4>
+    <hr />
+    <dl>
+        <dt>Название</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>Priority</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>SubTasks</dt>
+
+        <dd>
+            <ul>
+                @foreach (var item in Model.SubTasks)
+                {
+                    <li>@item.Name (@item.Order )</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>

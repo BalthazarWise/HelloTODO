@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TODO</title>
+</head>
+<body>
+    <div>
+        <h3>Список заданий</h3>        
+        <p></p>
+        <table>
+            <tr>
+                <td width="100"><p>ID</p></td>
+                <td width="150"><p>Задание</p></td>
+                <td width="300"><p>Описание</p></td>
+                <td width="100"><p>Статус</p></td>
+                <td width="100"><p>Приоритет</p></td>
+                <td width="150"><p>Сабтаски</p></td>
+                <td width="150"><p>Теги</p></td>
+                <td width="150"><p>Прикреплённый файл</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td height="100"><p>@b.Id</p></td>
+                    <td><p><a href="/Home/SubTaskDetails/@b.Id">@b.Name</a></p></td>
+                    <td><p>@b.Description</p></td>
+                    <td><p>@b.Status</p></td>
+                    <td><p>@b.Priority</p></td>
+                    <td>
+                        @foreach (var item in b.SubTasks)
+                        {
+                            <br />@item.Name
+                        }
+                    </td>
+                    <td>
+                        @foreach (var item in b.Tags)
+                        {
+                            <br />@item.Name
+                        }
+                    </td>
+                    <td>
+                        @b.Image
+                    </td>
+                    <td><p><a href="/Home/edit/@b.Id">Редактировать таск</a></p></td>
+                </tr>
+            }
+            <tr>
+                <td height="100"></td>
+                <td><p><a href="/Home/add/">Добавить таск</a></p></td>
+                <td></td>
+                <td><p><a href="/Home/ShowDoneTasks/">Показать сделанные</a></p></td>
+                <td></td>
+                <td><p><a href="/Home/addsubtask/">Добавить subтаск</a></p></td>
+                <td><p><a href="/Home/addtag/">Добавить tag</a></p></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

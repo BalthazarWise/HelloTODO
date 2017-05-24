@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Edit";
+}
+@model HelloTODO.Models.Task
+
+<h2>Таск № @Model.Id</h2>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Name, "Таск")
+                <br />
+                @Html.EditorFor(m => m.Name)
+            </td>
+            <td rowspan="2">
+                @{
+                    var fi = (FileInfo)ViewBag.FileInfo;
+                }
+                Название файла<br />
+                @fi.Name<br />
+                Время создания<br />
+                @fi.CreationTimeUtc<br />
+                Директория<br />
+                @fi.FullName<br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Description, "Описание")
+                <br />
+                @Html.EditorFor(m => m.Description)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Priority, "Приоритет")
+                <br />
+                <input type="range" min="0" max="5" name="Priority" value="@Model.Priority" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Status, "Статус")
+                <br />
+                @Html.EditorFor(m => m.Status)
+            </td>
+            <td>
+                Загрузить новый файл<br />
+                <input type="file" name="File" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                SubTasks<br />
+                @foreach (var item in Model.SubTasks)
+                {
+                    <br />@item.Name
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><input type="submit" value="Отправить" /></p>
+            </td>
+        </tr>
+    </table>
+}
