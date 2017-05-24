@@ -13,6 +13,7 @@ namespace HelloTODO.Models
         public string Name { get; set; }
         // Описание
         public string Description { get; set; }
+
         // Статус
         public bool Status { get; set; }
         // Priority
