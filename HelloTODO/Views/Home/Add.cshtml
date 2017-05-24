@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Add";
+}
+@model HelloTODO.Models.Task
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+        <h3>Добавить таск</h3>
+        @using (Html.BeginForm("Add", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table>
+                <tr>
+                    <td><p>Таск</p></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="Name" size="26"/> </td>
+                </tr>
+                <tr>
+                    <td><p>Описание</p></td>
+                </tr>
+                <tr>
+                    <td><textarea type="text" name="Description" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                    <td><p>Приоритет</p></td>
+                    <td rowspan="2">
+                        <p>Выберите файл для загрузки</p>
+                        <input type="file" name="File"/><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="range" min="0" max="5" step="1" value="0" name="Priority" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Подтвердить" /> </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

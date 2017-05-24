@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[SubTasks]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Order] INT NOT NULL, 
+    [TaskId] INT NULL 
+	CONSTRAINT [FK_SubTasks_Tasks] FOREIGN KEY ([TaskId]) REFERENCES [Tasks]([Id]) ON DELETE CASCADE
+)
