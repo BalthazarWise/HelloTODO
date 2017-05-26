@@ -164,6 +164,10 @@
     <Compile Include="Migrations\201705261246259_InitialCreate.Designer.cs">
       <DependentUpon>201705261246259_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705261339245_MigrateDB.cs" />
+    <Compile Include="Migrations\201705261339245_MigrateDB.Designer.cs">
+      <DependentUpon>201705261339245_MigrateDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SubTask.cs" />
     <Compile Include="Models\Tag.cs" />
@@ -232,6 +236,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705261246259_InitialCreate.resx">
       <DependentUpon>201705261246259_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705261339245_MigrateDB.resx">
+      <DependentUpon>201705261339245_MigrateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace HelloTODO.Models
 {
-    public class TaskInitializer : DropCreateDatabaseIfModelChanges<TaskContext>
+    public class TaskInitializer : CreateDatabaseIfNotExists<TaskContext>
     {
         protected override void Seed(TaskContext db)
         {
