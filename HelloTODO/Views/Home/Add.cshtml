@@ -16,6 +16,7 @@
         <h3>Добавить таск</h3>
         @using (Html.BeginForm("Add", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            @Html.ValidationSummary(true)
             @Html.HiddenFor(m => m.Id)
             <table>
                 <tr>

@@ -20,23 +20,29 @@ namespace HelloTODO.Controllers
             return View(tasks);
         }
         [HttpGet]
-        public ActionResult Add([Bind(Include = "Id,Name,Email,Deadline")] Task add)
+        public ActionResult Add(Task add)
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Add([Bind(Include = "Id,Name,Email,Deadline")] Task add, HttpPostedFileBase File)
+        public ActionResult Add(Task add, HttpPostedFileBase File)
         {
-            // получаем имя файла
-            string fileName = Path.GetFileName(File.FileName);
-            // сохраняем файл в папку Files в проекте
-            File.SaveAs(Server.MapPath("~/Files/" + fileName));
-            add.Image = fileName;
+            if (ModelState.IsValid)
+            {
+                // сохраняем файл в папку Files в проекте
+                if (File != null)
+                {
+                    string fileName = Path.GetFileName(File.FileName);
+                    File.SaveAs(Server.MapPath("~/Files/" + fileName));
+                    add.Image = fileName;
+                }
 
-            db.Tasks.Add(add);
-            db.SaveChanges();
+                db.Tasks.Add(add);
+                db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View(add);
         }
         [HttpGet]
         public ActionResult Edit(int? id)
